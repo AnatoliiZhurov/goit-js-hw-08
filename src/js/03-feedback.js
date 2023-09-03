@@ -8,11 +8,8 @@ const eventItmes = {
   messageInput: form.elements[`message`],
 };
 
-console.log(eventItmes);
-
 const LOCAL_KEY = 'feedback-form-state';
 const getDataStorage = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
-console.log(getDataStorage);
 
 eventItmes.emailInput.value = getDataStorage.email || ``;
 eventItmes.messageInput.value = getDataStorage.message || ``;
@@ -31,6 +28,7 @@ form.addEventListener(`submit`, resFoo);
 
 function resFoo(event) {
   event.preventDefault();
+  console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
   form.reset();
   localStorage.clear();
 }
